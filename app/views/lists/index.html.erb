@@ -2,23 +2,24 @@
   <div class="container">
     <h1> MyLists</h1>
       <p>define your favorite fils in your lists.</p>
-      <%= link_to "New List", new_list_path, class: "btn btn-flat", data: {turbo_method: :get}%>
+      <%= link_to "New List", new_list_path, class: "btn btn-primary", data: {turbo_method: :get}%>
   </div>
 </div>
 
 
 <div class="container">
+  <div class="cards mt-5">
     <% @lists.each do |list| %>
-    <div class="cards">
-    <div class="card-product">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="card-product-infos">
-        <h2><%= list.name %></h2>
-        <p><%= link_to "List", list_path(list), data: {turbo_method: :get} %></p>
-        <p><%= link_to "Delete", list_path(list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></p>
+      <div class="card-product">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <div class="card-product-infos">
+          <h2><%= list.name %></h2>
+            <div class= "d-flex align-self-center">
+              <p><%= link_to "List", list_path(list), class: "btn btn-secondary", data: {turbo_method: :get} %></p>
+              <p><%= link_to "Delete", list_path(list), class: "btn btn-danger", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></p>
+            </div>
+        </div>
       </div>
-    </div>
-    </div>
     <% end %>
-    <br>
+  </div>
 </div>
